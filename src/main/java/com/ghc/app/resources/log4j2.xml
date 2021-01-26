@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="debug">
+	<Appenders>
+		<File name="file-log" fileName="/tmp/logging.out" append="false">
+			<PatternLayout>
+				<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %C - %msg%n</pattern>
+			</PatternLayout>
+		</File>
+		<File name="file-log-2" fileName="/tmp/error.out" append="false">
+			<PatternLayout>
+				<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %C - %msg%n</pattern>
+			</PatternLayout>
+		</File>
+		<Console name="ConsoleLog" target="SYSTEM_OUT">
+			<PatternLayout pattern="[%t] %-5p %c %x%m%n%n" />
+			<ThresholdFilter level="DEBUG" onMatch="ACCEPT" onMismatch="DENY" />
+		</Console>
+
+	</Appenders>
+	<Loggers>
+		<Logger name="com.ghc" level="info" additivity="false">
+			<appender-ref ref="ConsoleLog" level="info" />
+		</Logger>
+	</Loggers>
+</Configuration>
